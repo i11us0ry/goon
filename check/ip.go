@@ -135,6 +135,7 @@ func getSubNet1(ips string) string{
 	返回存活c段，当CIDR>=24时不划分
 */
 func getSubNet(ips string) []string{
+	//fmt.Println("===",ips)
 	_, ipNet, err := net.ParseCIDR(ips)
 	if err != nil {
 		public.Error.Printf("ip:%s is error!\n",ips)

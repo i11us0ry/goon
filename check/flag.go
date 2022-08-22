@@ -135,7 +135,7 @@ func CheckPar(){
 					} else {
 						if !public.InputValue.NoPingPtr{
 							if find := strings.Count(line, "/"); find==1{
-								if !CheckSub(public.InputValue.IpsPtr){
+								if !CheckSub(line){
 									continue
 								}
 							} else {
@@ -158,7 +158,7 @@ func CheckPar(){
 					} else {
 						if !public.InputValue.NoPingPtr{
 							if find := strings.Count(line, "/"); find==1{
-								if !CheckSub(public.InputValue.IpsPtr){
+								if !CheckSub(line){
 									continue
 								}
 							} else {
