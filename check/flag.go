@@ -95,6 +95,11 @@ func CheckPar(){
 					public.Warning.Println("icmp cant find any ip 1!")
 					os.Exit(0)
 				}
+			} else {
+				ips := GetIp(public.InputValue.IpsPtr)
+				if len(ips)>0{
+					public.ConfValue.Ip = ips
+				}
 			}
 		} else {
 			ips := GetIp(public.InputValue.IpsPtr)
