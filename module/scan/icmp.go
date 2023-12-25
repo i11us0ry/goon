@@ -24,7 +24,7 @@ func Icmp (ips []string){
 	for i := 0; i< thread; i++{
 		go icmpWork(input,result)
 	}
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func icmpWork(input,result chan string){

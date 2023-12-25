@@ -45,7 +45,7 @@ func Ssh(hosts []string){
 	}
 
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func sshWork(input chan BruteInfo,result chan string){

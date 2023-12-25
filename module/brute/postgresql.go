@@ -42,7 +42,7 @@ func Postgres(hosts []string) {
 		go postgresWork(input,result)
 	}
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 

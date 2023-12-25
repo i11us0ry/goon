@@ -70,7 +70,7 @@ func NetBIOS(ips []string) {
 	for i := 0; i< thread; i++{
 		go netBiosWork(input,result)
 	}
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func netBiosWork(input chan Info,result chan string){

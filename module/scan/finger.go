@@ -34,7 +34,7 @@ func FingerScan(urls []string){
 	for i:=0; i< thread; i++{
 		go fingerWork(input,result)
 	}
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 /* 从channel获取host和plugin，然后读取plugin内容 */

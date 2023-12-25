@@ -46,7 +46,7 @@ func Redis(hosts []string) {
 	}
 
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func redisWork(input chan BruteInfo,result chan string){

@@ -32,7 +32,7 @@ func DirScan(urls []string){
 		go scanDir(input,result)
 	}
 
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func scanDir(input chan string,result chan string){

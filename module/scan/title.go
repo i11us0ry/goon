@@ -37,7 +37,7 @@ func TitleScan(urls []string){
 	for i := 0; i< thread; i++{
 		go scanTitle(input,result)
 	}
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func scanTitle(input chan string,result chan string){
@@ -64,12 +64,19 @@ func getTitle(url string) string{
 	rsp := getHttpRequest(url)
 	title := ""
 	if rsp != nil{
-		c, b := rsp.StatusCode, "0"
+		c, b, _ := rsp.StatusCode, "0", rsp.Header
+		// 状态码为401的
 		if c == 401{
 			return fmt.Sprintf("code:%-5vlen:%-10v401 unauthorized",c,b)
 		}
+		// 状态码为302的
+		//if c == 302{
+		//	n := h.Get("Location")
+		//	return fmt.Sprintf("code:%-5vlen:%-10vlocation:%v",c,b,n)
+		//}
 		/* 获取body */
 		body, err:= ioutil.ReadAll(rsp.Body)
+		//fmt.Println(fmt.Sprintf("%v %v %v %v\n",url, c, b, string(body)))
 		b = strconv.Itoa(len(body))
 		if err != nil{
 			return ""

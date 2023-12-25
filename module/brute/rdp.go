@@ -44,7 +44,7 @@ func RDP(hosts []string) {
 	}
 
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 func rdpWork(input chan BruteInfo,result chan string){
 	for {

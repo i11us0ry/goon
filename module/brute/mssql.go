@@ -52,7 +52,7 @@ func Mssql(hosts []string ) {
 		go mssqlWork(input,result)
 	}
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 

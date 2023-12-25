@@ -44,7 +44,7 @@ func TomcatScan(urls []string) {
 	for i:=0; i< thread; i++{
 		go tomcatWork(input,result)
 	}
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func tomcatWork(input chan string,result chan string){

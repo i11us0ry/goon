@@ -42,7 +42,7 @@ func MS17010(ips []string) {
 		go ms17010Work(input, result)
 	}
 	/* 输出 */
-	public.Out(result, Par.Ofile)
+	public.Out(result)
 }
 
 func ms17010Work(input chan string,result chan string){

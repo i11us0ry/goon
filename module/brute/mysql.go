@@ -40,7 +40,7 @@ func Mysql(hosts []string) {
 		go mysqlWork(input,result)
 	}
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func mysqlWork(input chan BruteInfo,result chan string){

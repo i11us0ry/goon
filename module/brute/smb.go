@@ -43,7 +43,7 @@ func Smb(hosts []string) {
 	}
 
 	/* 输出 */
-	public.Out(result,Par.Ofile)
+	public.Out(result)
 }
 
 func smbWork(input chan BruteInfo,result chan string){
