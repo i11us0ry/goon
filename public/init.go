@@ -1,6 +1,6 @@
 package public
 
-func InitInput() *InputType{
+func InitInput() *InputType {
 	return &InputType{
 		"all",
 		"",
@@ -23,6 +23,8 @@ func InitInput() *InputType{
 		"",
 		false,
 		false,
+		false,
+		false,
 		"",
 		"",
 		"",
@@ -30,7 +32,7 @@ func InitInput() *InputType{
 	}
 }
 
-func InitPar(conf *Conf) *AutoParType{
+func InitPar(conf *Conf) *AutoParType {
 	return &AutoParType{
 		conf.Thread,
 		conf.Timeout,
@@ -42,9 +44,6 @@ func InitPar(conf *Conf) *AutoParType{
 		[]string{},
 		[]string{},
 		conf.PortScan.StatusCode,
-		false,
-		false,
-		GetCurrentDir()+"/result.txt",
 		DirScanConf{
 			conf.DirScan.Dir,
 			conf.DirScan.Mode,
@@ -69,42 +68,42 @@ func InitPar(conf *Conf) *AutoParType{
 					conf.Brute.Ssh.Pass,
 					conf.Brute.Ssh.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Redis.User,
 					conf.Brute.Redis.Pass,
 					conf.Brute.Redis.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Ftp.User,
 					conf.Brute.Ftp.Pass,
 					conf.Brute.Ftp.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Mysql.User,
 					conf.Brute.Mysql.Pass,
 					conf.Brute.Mysql.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Mssql.User,
 					conf.Brute.Mssql.Pass,
 					conf.Brute.Mssql.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Postgres.User,
 					conf.Brute.Postgres.Pass,
 					conf.Brute.Postgres.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Smb.User,
@@ -119,7 +118,7 @@ func InitPar(conf *Conf) *AutoParType{
 					[]string{},
 					conf.Brute.NetBios.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Rdp.User,
@@ -133,7 +132,7 @@ func InitPar(conf *Conf) *AutoParType{
 					conf.Brute.Telnet.Pass,
 					conf.Brute.Telnet.Port,
 				},
-			},BruteInfoType{
+			}, BruteInfoType{
 				[]string{},
 				BruteParConf{
 					conf.Brute.Tomcat.User,
@@ -145,10 +144,10 @@ func InitPar(conf *Conf) *AutoParType{
 	}
 }
 
-var InputValue  *InputType
-var ConfValue   *AutoParType
+var InputValue *InputType
+var ConfValue *AutoParType
 
-func Init(conf *Conf){
+func Init(conf *Conf) {
 	InputValue = InitInput()
 	ConfValue = InitPar(conf)
 }

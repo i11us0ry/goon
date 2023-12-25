@@ -2,40 +2,29 @@ package public
 
 var Thread int
 
-/*
- 公共进程池, 考虑当中
-*/
-//func InitThread(){
-//	if InputValue.ThreadPtr != 0{
-//		Thread = InputValue.ThreadPtr
-//	} else {
-//		Thread = ConfValue.Thread
-//	}
-//}
-//
-//func AddThread(){
-//	Thread++
-//}
-//
-//func redThread(){
-//	Thread--
-//}
-
-func Out(result chan string,ofile string) {
+func Out(result chan string) {
 	/*
-	扫描进度
+		扫描进度
 	*/
-	i,y := 0,0
+	i, y := 0, 0
 	for host := range result {
 		i++
 		if host != "" {
 			y++
 			Success.Printf("%s", host)
-			FileWrite(ofile, (host + "\n"))
+			if !InputValue.NoOutputPtr {
+				FileWrite(InputValue.OfilePtr, (host + "\n"))
+			}
 		}
-		if i==cap(result){
+		if i == cap(result) {
 			close(result)
 			break
 		}
+	}
+}
+
+func Out2(s string) {
+	if !InputValue.NoOutputPtr {
+		FileWrite(InputValue.OfilePtr, s)
 	}
 }
