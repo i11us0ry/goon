@@ -88,10 +88,6 @@ func configWrite(fileName string){
 
 	conf.Brute.NetBios.Port = public.NetBiosPort
 
-	conf.Brute.Telnet.User = public.TelnetDic["user"]
-	conf.Brute.Telnet.Pass = public.TelnetDic["pass"]
-	conf.Brute.Telnet.Port = public.TelnetDic["port"]
-
 	conf.Brute.Tomcat.User = public.TomcatDic["user"]
 	conf.Brute.Tomcat.Pass = public.TomcatDic["pass"]
 
