@@ -18,8 +18,11 @@ goon,集合了fscan和kscan等优秀工具功能的扫描爆破工具。
 ```
 
 ## 更新说明
-- 更新计划
-    - arp协议探活
+- 2023年12月25日 v3.6
+    - 新增 -ping 选项，调用ping探活ip，适用于非root/admin权限情况
+    - 新增 -no 选项，不保存文件，适用于linux下报错open too many files
+    - title、finger扫描可以直接输入domain和url
+    - 爆破类支持输入ip、ip段和127.0.0.1:6379格式数据
 
 - 2022年08月19日 v3.5
     - 端口指纹优化，不输出无关指纹
@@ -60,23 +63,23 @@ goon,集合了fscan和kscan等优秀工具功能的扫描爆破工具。
 
 - 执行mysql爆破时日志打印如下信息：
 `wsarecv: An existing connection was forcibly closed by the remote host.`
-- 解决方案：注释掉如下代码后重新编译（依赖问题）
+  - 解决方案：注释掉如下代码后重新编译（依赖问题）
 `github.com/go-sql-driver/mysql/packets.go 中注释 errLog.Print(err) `
 
 - 执行http请求时日志打印如下信息：
 `Unsolicited response received on idle HTTP channel starting with`
-- 解决方案：注释掉如下代码后重新编译（依赖问题）
+  - 解决方案：注释掉如下代码后重新编译（依赖问题）
 `net/http/transport.go 中 log.Printf("Unsolicited response received on idle HTTP channel starting with %q; err=%v", buf, peekErr)`
 
 #### 其他说明
 - 问题：linux下报错open too many files
-- 解决：参考https://blog.csdn.net/whatday/article/details/104166669（linux问题）
+  - 解决：参考https://blog.csdn.net/whatday/article/details/104166669（linux问题）
  
 - 问题：goon执行直接报错，加上-np不报错
-- 解决：执行goon的权限太低
+  - 解决：执行goon的权限太低
 
 - 问题：乱七八糟的
-- 解决：提issues，我会尽快验证修复
+  - 解决：提issues，我会尽快验证修复
 
 #### 参数说明：
 
@@ -85,7 +88,7 @@ goon,集合了fscan和kscan等优秀工具功能的扫描爆破工具。
   all:    默认选项,包含ip-port(web)-title-finger-ftp-ms17010-mssql-mysql-postgres-redis-ssh-smb-rdp-telnet-netbios
   webscan:  包含ip-port(web)-title-finger
   brute:    包含ip-ftp-ms17010-mssql-mysql-postgres-redis-ssh-smb-rdp-telnet
-  ip:   icmp探活,执行-np可绕过探活，支持/8-/31之间任意CIDR，
+  ip:   ip探活, 默认使用icmp，执行-ping使用ping，支持/8-/31之间任意CIDR，
         /8-/15之间自动生成所有c段，先探测每个c段的.1;
         /16-/23之间自动生成所有c段，先探测每个c段的.1和.254，
         /24先探测.1和.24，/25-/31探测所有ip
