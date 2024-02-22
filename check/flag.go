@@ -126,7 +126,7 @@ func CheckPar() {
 			*/
 			if public.InputValue.ModePtr == "title" || public.InputValue.ModePtr == "dfuzz" || public.InputValue.ModePtr == "finger" || public.InputValue.ModePtr == "tomcat" {
 				for _, line := range lines {
-					if !strings.Contains(line, "http") {
+					if strings.Contains(line, "http") {
 						public.ConfValue.Url = append(public.ConfValue.Url, line)
 					} else {
 						// 如果目标不带http则加上http
