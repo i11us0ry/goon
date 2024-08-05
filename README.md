@@ -1,1 +1,1 @@
-不维护了，建议用kscan、fscan、httpx
+不维护了，建议用kscan、fscan、httpx、gogo
